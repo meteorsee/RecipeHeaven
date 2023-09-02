@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Vegetarian">
+
+
+    <RelativeLayout android:id="@+id/progress_bar"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/rectangle_60"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"/>
+
+        <View
+            android:id="@+id/rectangle_63"
+            android:layout_width="254.25dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/vege_or_not"
+        android:layout_width="344dp"
+        android:layout_height="116dp"
+        android:layout_below="@id/progress_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/raleway"
+        android:text="Are you a vegetarian?"
+        android:textSize="30sp" />
+
+    <RadioGroup
+        android:id="@+id/options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/vege_or_not">
+
+        <RadioButton
+            android:id="@+id/vege_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button_custom"
+            android:fontFamily="@font/raleway_regular"
+            android:letterSpacing="0.1"
+            android:text="Yes"
+            android:textSize="30sp" />
+
+        <RadioButton
+            android:id="@+id/vege_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button_custom"
+            android:fontFamily="@font/raleway_regular"
+            android:letterSpacing="0.1"
+            android:text="No"
+            android:textSize="30sp" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/buttonsAndCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/options"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/rounded_custom_navigate"
+            android:fontFamily="@font/open_sans_regular"
+            android:letterSpacing="0.1"
+            android:text="Back"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/options"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/rounded_custom_navigate"
+            android:fontFamily="@font/open_sans_regular"
+            android:letterSpacing="0.1"
+            android:text="Next"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</RelativeLayout>
