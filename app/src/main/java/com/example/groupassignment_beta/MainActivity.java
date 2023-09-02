@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            usernameTextView = findViewById(R.id.textViewUsername);
+        usernameTextView = findViewById(R.id.textViewUsername);
 
-            // Retrieve the username passed from LoginActivity
-            String username = getIntent().getStringExtra("username");
+        // Retrieve the username passed from LoginActivity
+        String username = getIntent().getStringExtra("username");
 
-            // Display the username on the TextView
-            usernameTextView.setText("Welcome, " + username);
+        // Display the username on the TextView
+        usernameTextView.setText("Welcome, " + username);
 
         login = findViewById(R.id.loginpage);
         register = findViewById(R.id.registerpage);
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Register.class);
                 startActivity(intent);            }
         });
+
         /*auth = FirebaseAuth.getInstance();
         logout = findViewById(R.id.logout);
         login = findViewById(R.id.login);
@@ -96,4 +97,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

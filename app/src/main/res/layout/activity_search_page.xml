@@ -7,107 +7,35 @@
     tools:context=".SearchPage">
 
 
-  <RelativeLayout android:id="@+id/progress_bar"
-      android:layout_marginTop="18dp"
-      android:layout_marginStart="4dp"
+  <androidx.cardview.widget.CardView
+      app:cardElevation="8dp"
+      android:id="@+id/searchBox_home"
+      android:layout_marginTop="30dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true">
 
-    <View
-        android:id="@+id/rectangle_60"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView_home"
         android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp" />
+        android:layout_height="match_parent"
+        android:textColor="#000000"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search for recipe"
+        app:searchIcon="@drawable/search" />
 
-    <View
-        android:id="@+id/rectangle_63"
-        android:layout_width="169.5dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="5dp" />
+  </androidx.cardview.widget.CardView>
 
-  </RelativeLayout>
-
-
-  <TextView
-      android:id="@+id/level_of_cooking_expertise_"
-      android:layout_width="344dp"
-      android:layout_height="116dp"
-      android:layout_below="@id/progress_bar"
-      android:layout_centerHorizontal="true"
-      android:layout_marginLeft="25dp"
-      android:layout_marginTop="32dp"
-      android:fontFamily="@font/raleway"
-      android:text="Would you prefer halal or non-halal food?"
-      android:textSize="30sp" />
-
-  <RadioGroup
-      android:id="@+id/options"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_below="@id/level_of_cooking_expertise_">
-
-    <RadioButton
-        android:id="@+id/halal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_button_custom"
-        android:fontFamily="@font/raleway_regular"
-        android:letterSpacing="0.1"
-        android:text="Halal"
-        android:textSize="30sp" />
-
-    <RadioButton
-        android:id="@+id/non_halal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_button_custom"
-        android:fontFamily="@font/raleway_regular"
-        android:letterSpacing="0.1"
-        android:text="Non Halal"
-        android:textSize="30sp" />
-
-  </RadioGroup>
-
-  <LinearLayout
-      android:id="@+id/buttonsAndCheckbox"
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyler_random"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/options"
-      android:layout_centerHorizontal="true"
-      android:layout_marginTop="90dp"
-      android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:background="@drawable/rounded_custom_navigate"
-        android:fontFamily="@font/open_sans_regular"
-        android:letterSpacing="0.1"
-        android:text="Back"
-        android:textColor="#ffffff"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/options"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/rounded_custom_navigate"
-        android:fontFamily="@font/open_sans_regular"
-        android:letterSpacing="0.1"
-        android:text="Next"
-        android:textColor="#ffffff"
-        android:textSize="30sp" />
-  </LinearLayout>
+      android:layout_height="match_parent"
+      android:layout_below="@id/searchBox_home"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="8dp" />
 
 </RelativeLayout>
