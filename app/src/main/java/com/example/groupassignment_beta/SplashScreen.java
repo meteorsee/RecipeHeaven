@@ -31,7 +31,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 Log.d(TAG, "run: Delaying Animation");
-                Intent intent = new Intent(SplashScreen.this, CookingLevel.class);
+                Intent intent = new Intent(SplashScreen.this, GetStarted.class);
                 startActivity(intent);
                 finish();
             }

@@ -2,14 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.groupassignment_beta">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Recipe Heaven"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GroupAssignment_Beta">
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".Shopping_cart"
+            android:exported="false" />
+        <activity
+            android:name=".Bookmark"
+            android:exported="false" />
+        <activity
+            android:name=".GetStarted"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeDetails"
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />

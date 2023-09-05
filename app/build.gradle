@@ -4,6 +4,71 @@ plugins {
 }
 
 android {
+    compileSdkVersion 34 // Change this to the desired compileSdkVersion (Android 12)
+
+    defaultConfig {
+        applicationId "com.example.groupassignment_beta"
+        minSdk 24
+        targetSdk 34 // Change this to the desired targetSdkVersion (Android 12)
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    // Use AndroidX dependencies
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'com.google.android.gms:play-services-tasks:17.2.1'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // Gson converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+
+    // Firebase
+    implementation platform("com.google.firebase:firebase-bom:32.2.3")
+    implementation "com.google.firebase:firebase-auth"
+    implementation "com.google.android.gms:play-services-auth:20.7.0"
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.test:monitor:1.6.1'
+
+    testImplementation 'junit:junit:4.+'
+
+    // AndroidX testing dependencies
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+
+/*
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
     compileSdkVersion 31
 
     defaultConfig {
@@ -30,7 +95,7 @@ android {
 
 dependencies {
 
-    //noinspection GradleCompatible
+    noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'androidx.annotation:annotation:1.3.0'
@@ -46,7 +111,16 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
+    //firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
+}*/
