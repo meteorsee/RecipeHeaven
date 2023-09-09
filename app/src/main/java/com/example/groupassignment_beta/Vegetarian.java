@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -22,11 +23,14 @@ public class Vegetarian extends AppCompatActivity {
     private Button backButton, nextButton;
     private FirebaseAuth mAuth; // Initialize Firebase Authentication
 
+    private Boolean checkProgress = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vegetarian);
 
+        getProgressBar();
         getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance(); // Initialize Firebase Authentication
 
@@ -41,6 +45,10 @@ public class Vegetarian extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("YES selected");
+
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -48,6 +56,10 @@ public class Vegetarian extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("NO selected");
+
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -55,6 +67,7 @@ public class Vegetarian extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Back button clicked in vege activity");
+                decrementProgressBar();
                 Intent intent = new Intent(Vegetarian.this, Halal.class);
                 startActivity(intent);
             }
@@ -69,8 +82,14 @@ public class Vegetarian extends AppCompatActivity {
                 updateVegetarianInFirebase(selectedVegetarian);
 
                 showToast("Next button clicked in vege activity");
+
+                if(!checkProgress){
+                    updateProgressBar();
+                }
+
                 Intent intent = new Intent(Vegetarian.this, SetupDone.class);
                 startActivity(intent);
+                getProgressBar();
             }
         });
     }
@@ -84,6 +103,40 @@ public class Vegetarian extends AppCompatActivity {
         } else {
             return "";
         }
+    }
+
+    private void getProgressBar(){
+        // Access the ProgressManager instance
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        // To get the current progress
+        int currentProgress = progressManager.getProgress();
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(currentProgress);
+    }
+
+    private void updateProgressBar() {
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        int currentProgress = progressManager.getProgress();
+
+        // To increment the progress
+        int newProgress = currentProgress + 1; // Increment by 1
+        progressManager.setProgress(newProgress);
+
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(newProgress);
+        checkProgress = true;
+    }
+
+    private void decrementProgressBar() {
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        int currentProgress = progressManager.getProgress();
+
+        // To decrement the progress
+        int newProgress = currentProgress - 1; // Decrement by 1
+        progressManager.setProgress(newProgress);
     }
 
     private void showToast(String message) {

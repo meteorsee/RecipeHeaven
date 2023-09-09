@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ public class Halal extends AppCompatActivity {
     private RadioButton RB_HALAL, RB_NON_HALAL;
     private RadioGroup options;
 
+    private Boolean checkProgress = false;
+
     private FirebaseAuth mAuth; // Initialize Firebase Authentication
 
     @Override
@@ -30,6 +33,7 @@ public class Halal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halal);
 
+        getProgressBar();
         getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance(); // Initialize Firebase Authentication
 
@@ -46,6 +50,9 @@ public class Halal extends AppCompatActivity {
             public void onClick(View v) {
                 showToast("YES selected");
                 Log.d(TAG, "onClick: YES selected");
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -54,6 +61,9 @@ public class Halal extends AppCompatActivity {
             public void onClick(View v) {
                 showToast("NO selected");
                 Log.d(TAG, "onClick: NO selected");
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -64,6 +74,7 @@ public class Halal extends AppCompatActivity {
                 Log.d(TAG, "onClick: Back button clicked");
                 Intent intent = new Intent(Halal.this, CookingLevel.class);
                 startActivity(intent);
+                decrementProgressBar();
             }
         });
 
@@ -77,8 +88,12 @@ public class Halal extends AppCompatActivity {
 
                 showToast("Next button clicked");
                 Log.d(TAG, "onClick: Next button clicked");
+                if(!checkProgress){
+                    updateProgressBar();
+                }
                 Intent intent = new Intent(Halal.this, Vegetarian.class);
                 startActivity(intent);
+                getProgressBar();
             }
         });
     }
@@ -92,6 +107,38 @@ public class Halal extends AppCompatActivity {
         } else {
             return "";
         }
+    }
+
+    private void getProgressBar(){
+        // Access the ProgressManager instance
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        // To get the current progress
+        int currentProgress = progressManager.getProgress();
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(currentProgress);
+    }
+
+    private void updateProgressBar() {
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        int currentProgress = progressManager.getProgress();
+
+        int newProgress = currentProgress + 1; // Increment by 1
+        progressManager.setProgress(newProgress);
+
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(newProgress);
+        checkProgress = true;
+    }
+
+    private void decrementProgressBar() {
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        int currentProgress = progressManager.getProgress();
+
+        int newProgress = currentProgress - 1; // Decrement by 1
+        progressManager.setProgress(newProgress);
     }
 
     private void showToast(String message) {

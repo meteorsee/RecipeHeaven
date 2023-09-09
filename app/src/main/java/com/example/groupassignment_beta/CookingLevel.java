@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -24,12 +25,14 @@ public class CookingLevel extends AppCompatActivity {
     private RadioGroup options;
     private Button btNext;
     private FirebaseAuth mAuth; // Initialize Firebase Authentication
+    private Boolean checkProgress = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cooking_level);
 
+        getProgressBar();
         getSupportActionBar().hide();
 
         Log.d(TAG, "onCreate: Activity started");
@@ -47,6 +50,9 @@ public class CookingLevel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Beginner selected");
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -54,6 +60,9 @@ public class CookingLevel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Homecook selected");
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -61,6 +70,9 @@ public class CookingLevel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Professional Chef selected");
+                if(!checkProgress){
+                    updateProgressBar();
+                }
             }
         });
 
@@ -68,22 +80,22 @@ public class CookingLevel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Check if the user is authenticated
-                FirebaseUser user = mAuth.getCurrentUser();
+                /*FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null) {
                     showToast("Next button clicked");
                     String selectedCookingLevel = getSelectedCookingLevel();
                     updateCookingLevelInFirebase(selectedCookingLevel);
-
+*/
                     // Start the next activity
                     Intent intent = new Intent(CookingLevel.this, Halal.class);
                     startActivity(intent);
-                } else {
-                    showToast("User not logged in");
+                /*} else {
+                    showToast("User not logged in");*/
                     // You can handle this case by redirecting the user to the login page.
                     // For example:
                     // Intent intent = new Intent(CookingLevel.this, Login.class);
                     // startActivity(intent);
-                }
+               // }
             }
         });
     }
@@ -124,6 +136,29 @@ public class CookingLevel extends AppCompatActivity {
         } else {
             showToast("User not logged in");
         }
+    }
+
+    private void getProgressBar(){
+        // Access the ProgressManager instance
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        // To get the current progress
+        int currentProgress = progressManager.getProgress();
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(currentProgress);
+    }
+    private void updateProgressBar() {
+        ProgressManager progressManager = ProgressManager.getInstance();
+
+        int currentProgress = progressManager.getProgress();
+
+        // To increment the progress
+        int newProgress = ++currentProgress; // Increment by 1
+        progressManager.setProgress(newProgress);
+
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(newProgress);
+        checkProgress = true;
     }
 }
 

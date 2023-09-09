@@ -17,6 +17,7 @@ public class Bookmark extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookmark);
 
+        getSupportActionBar().hide();
 
         bottomNav = findViewById(R.id.bottom_navigation);
 

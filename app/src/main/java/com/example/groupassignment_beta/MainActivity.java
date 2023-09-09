@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button logoutButton;
     private ImageView peopleLogo;
-    /*private FirebaseAuth auth;
-    private Button logout, login;
-    private TextView user_details;*/
-    private TextView usernameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

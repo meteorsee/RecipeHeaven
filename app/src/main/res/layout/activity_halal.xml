@@ -7,27 +7,25 @@
     tools:context=".Halal">
 
 
-    <RelativeLayout android:id="@+id/progress_bar"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="4dp"
+    <RelativeLayout
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="18dp">
 
-        <View
-            android:id="@+id/rectangle_60"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp" />
-
-        <View
-            android:id="@+id/rectangle_63"
-            android:layout_width="169.5dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp" />
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:indeterminate="false"
+            android:max="3"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar"
+            android:visibility="visible" />
 
     </RelativeLayout>
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="oval">
+            <solid
+                android:color="#ffffff"/>
+            <size
+                android:height="8dp"
+                android:width="8dp"/>
+            <stroke android:width="1dp"
+                android:color="#FFF6A2"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_sun"
+        android:top="2dp"
+        android:bottom="2dp"
+        android:right="2dp"
+        android:left="2dp"/>
+</layer-list>

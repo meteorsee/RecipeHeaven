@@ -34,41 +34,65 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_margin="15dp"
             android:background="@color/gray"
-            android:layout_margin="15dp">
+            android:elevation="4dp"
+            android:padding="16dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Account Settings"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans"
+                android:background="@drawable/custom_settings_button"/>
         </androidx.cardview.widget.CardView>
 
+
         <androidx.cardview.widget.CardView
-            android:id="@+id/displayColor"
+            android:id="@+id/display_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_margin="15dp"
             android:background="@color/gray"
-            android:layout_margin="15dp">
+            android:elevation="4dp"
+            android:padding="16dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Display Color"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans"
+                android:background="@drawable/custom_settings_button"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchMode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:thumb="@drawable/thumb"
+                app:track="@drawable/track"
+                app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/languageSettings"
+            android:id="@+id/language_settings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_margin="15dp"
             android:background="@color/gray"
-            android:layout_margin="15dp">
+            android:elevation="4dp"
+            android:padding="16dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Language Settings"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans"
+                android:background="@drawable/custom_settings_button"/>
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#D9D9D9</color>
-
+    <color name="get_started_btn">#A29890</color>
+    <color name="progress_bar_green">#1cf28c</color>
 </resources>
