@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:hint="Full Name"
             android:inputType="textPersonName"
-            android:background="@drawable/form_background"/>
+            android:background="@drawable/form_background"
+            android:layout_marginBottom="5dp"/>
 
         <EditText
             android:id="@+id/usernameRegister"
@@ -48,7 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/nameRegister"
             android:hint="Username"
-            android:background="@drawable/form_background"/>
+            android:background="@drawable/form_background"
+            android:layout_marginBottom="5dp"/>
 
         <EditText
             android:id="@+id/emailRegister"
@@ -57,7 +59,8 @@
             android:hint="Email"
             android:layout_below="@id/usernameRegister"
             android:inputType="textEmailAddress"
-            android:background="@drawable/form_background"/>
+            android:background="@drawable/form_background"
+            android:layout_marginBottom="5dp"/>
 
         <EditText
             android:id="@+id/passwordRegister"
