@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,9 @@ public class Login extends AppCompatActivity {
     private FirebaseDatabase database;
     GoogleSignInClient mGoogleSignInClient;
     private EditText usernameLogin, passwordLogin;
-    private Button loginButton, buttonLogin_Google;
+    private Button loginButton ;
+
+    private ImageView buttonLogin_Google;
     private TextView registerRedirect;
     private int RC_SIGN_IN = 20;
     @Override

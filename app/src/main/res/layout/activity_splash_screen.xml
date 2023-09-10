@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen">
+    tools:context=".SplashScreen"
+    style="@style/ScreenBackground">
 
 
     <TextView
@@ -15,7 +16,8 @@
         android:layout_marginTop="320dp"
         android:fontFamily="@font/lobster_regular"
         android:text="Recipe\nHeaven"
-        android:textSize="45sp" />
+        android:textSize="45sp"
+        style="@style/TextColor"/>
 
     <TextView
         android:id="@+id/splashLegalView"
@@ -26,7 +28,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/lobster_regular"
         android:text="Copyright © 2023 Meteor Studio. All rights reserved."
-        android:textColor="#888888"
+        style="@style/TextColor"
         android:textSize="15sp" />
 
 

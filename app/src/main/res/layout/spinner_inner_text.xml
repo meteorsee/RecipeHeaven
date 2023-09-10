@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="Dessert"
-    android:textColor="#000000"
+    style="@style/Spinner"
     android:textSize="18sp"
     android:padding="8dp">
 

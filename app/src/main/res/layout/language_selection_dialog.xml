@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select a language:"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <RadioButton
+        android:id="@+id/radioEnglish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English"/>
+
+    <RadioButton
+        android:id="@+id/radioChinese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chinese"/>
+
+    <RadioButton
+        android:id="@+id/radioMalay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Malay"/>
+
+    <RadioButton
+        android:id="@+id/radioTamil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tamil"/>
+
+    <Button
+        android:id="@+id/btnApplyLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apply"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

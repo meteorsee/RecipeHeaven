@@ -5,51 +5,41 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.groupassignment_beta.Adapters.RandomRecipeAdapter;
+import com.example.groupassignment_beta.Listener.RandomRecipeResponseListener;
+import com.example.groupassignment_beta.Listener.RecipeClickListener;
+import com.example.groupassignment_beta.Models.RandomRecipeApiResponse;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNav;
-
-    private Button logoutButton;
+    RandomRecipeAdapter randomRecipeAdapter;
     private ImageView peopleLogo;
+    RecyclerView recyclerView;
+    RequestManager manager;
+    List<String> tags = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        logoutButton = findViewById(R.id.logoutButton);
 
         getSupportActionBar().hide();
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String displayName = user != null ? user.getDisplayName() : "Unknown User";
-
-                // Sign out the user
-                FirebaseAuth.getInstance().signOut();
-
-                // Display a toast message indicating the user has logged out
-                Toast.makeText(MainActivity.this, "Logged out: " + displayName, Toast.LENGTH_SHORT).show();
-
-                // Redirect to the login page
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
-                finish(); // Optional, to close the current activity
-            }
-        });
+        manager = new RequestManager(this);
+        manager.getRandomRecipes(randomRecipeResponseListener, tags);
 
         peopleLogo = findViewById(R.id.peopleLogo);
 
@@ -62,41 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        /*auth = FirebaseAuth.getInstance();
-        logout = findViewById(R.id.logout);
-        login = findViewById(R.id.login);
-        user_details = findViewById(R.id.user_details);
-
-        // Check if the user is authenticated
-        FirebaseUser user = auth.getCurrentUser();
-        *//*if (user == null) {
-            // User is not authenticated, redirect to the login page
-            navigateToLogin();
-        } else {
-            // User is authenticated, display user details
-            user_details.setText(user.getEmail());
-        }*//*
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Sign out the user
-                FirebaseAuth.getInstance().signOut();
-                // Clear user details
-                user_details.setText("");
-                // Redirect to the login page
-                navigateToLogin();
-            }
-        });
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Redirect to the login page
-                navigateToLogin();
-            }
-        });*/
 
         FrameLayout searchButton = findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -144,5 +99,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    private final RandomRecipeResponseListener randomRecipeResponseListener = new RandomRecipeResponseListener() {
+        @Override
+        public void didFetch(RandomRecipeApiResponse response, String message) {
+            recyclerView = findViewById(R.id. recyler_random_home);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,1));
+            randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this,response.recipes, recipeClickListener);
+            recyclerView.setAdapter(randomRecipeAdapter);
+        }
+
+        @Override
+        public void didError(String message) {
+            Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+
+    private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
+        @Override
+        public void onRecipeClicked(String id) {
+            startActivity(new Intent(MainActivity.this, RecipeDetails.class)
+                    .putExtra("id",id));
+        }
+    };
 
 }

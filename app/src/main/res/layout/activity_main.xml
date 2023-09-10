@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    style="@style/ScreenBackground">
 
         <ImageView
             android:id="@+id/menu_logo"
@@ -41,7 +42,8 @@
             android:textStyle="bold"
             android:fontFamily="@font/roboto"
             android:textSize="25sp"
-            android:paddingBottom="10dp"/>
+            android:paddingBottom="10dp"
+            style="@style/TextColor"/>
 
         <FrameLayout
             android:id="@+id/search_button"
@@ -76,61 +78,37 @@
             </LinearLayout>
         </FrameLayout>
 
-        <ScrollView
-            android:layout_below="@id/search_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
             <LinearLayout
+                android:layout_below="@id/search_button"
+                android:layout_above="@id/bottom_navigation"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/logoutButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Logout"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="16dp"
-                    android:visibility="visible" />
 
-
-                <TextView
-                    android:id="@+id/textView_categories"
-                    android:text="Categories"
-                    android:fontFamily="@font/raleway"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textSize="18sp"
-                    android:gravity="left"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_meal_similar"
-                    android:layout_margin="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/textView_recommend"
                     android:fontFamily="@font/raleway"
                     android:text="Recommend"
                     android:textStyle="bold"
                     android:padding="8dp"
-                    android:textSize="18sp"
+                    android:textSize="25sp"
                     android:gravity="left"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_meal_ingredients"
-                    android:layout_margin="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    style="@style/TextColor"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"/>
 
-        </ScrollView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyler_random_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/searchBox_home"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_above="@id/bottom_navigation"/>
+            </LinearLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"

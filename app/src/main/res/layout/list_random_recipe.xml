@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     app:cardElevation="8dp"
     android:layout_margin="8dp"
-    android:id="@+id/random_list_container">
+    android:id="@+id/random_list_container"
+    style="@style/CardBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="8dp"
             android:textSize="22sp"
-            android:textColor="@color/black"/>
+            style="@style/TextColor"/>
 
         <ImageView
             android:id="@+id/imageView_food"
@@ -56,7 +57,7 @@
                         android:text="2 Persons"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#000000"/>
+                        style="@style/TextColor"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -77,7 +78,7 @@
                         android:text="2 Persons"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#000000"/>
+                        style="@style/TextColor"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -98,15 +99,10 @@
                         android:text="2 Minutes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#000000"/>
+                        style="@style/TextColor"/>
 
                 </LinearLayout>
             </LinearLayout>
-
-
-
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

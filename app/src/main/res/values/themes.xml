@@ -7,4 +7,48 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="ScreenBackground">
+        <item name="android:background">
+            @color/white
+        </item>
+    </style>
+
+    <style name="CardBackground">
+        <item name="android:background">@drawable/custom_card_random_light</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+
+    <style name="TextColor">
+        <item name="android:textColor">
+            @color/black
+        </item>
+    </style>
+
+
+    <style name="BtnColor">
+        <item name="android:textColor">
+            @color/white
+        </item>
+        <item name="android:background">
+            @color/gray
+        </item>
+    </style>
+
+    <style name="Spinner">
+        <item name="android:background">
+            @color/white
+        </item>
+        <item name="android:textColor">
+            @color/black
+        </item>
+    </style>
+
+    <style name="NavBarColor">
+        <item name="android:color">
+            @color/gray
+        </item>
+    </style>
 </resources>

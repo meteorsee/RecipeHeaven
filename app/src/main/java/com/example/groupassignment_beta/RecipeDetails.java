@@ -42,6 +42,8 @@ public class RecipeDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_details);
 
+        getSupportActionBar().hide();
+
         findViews();
 
         id = Integer.parseInt(getIntent().getStringExtra("id"));

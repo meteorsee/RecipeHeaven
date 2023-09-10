@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchPage">
+    tools:context=".SearchPage"
+    style="@style/ScreenBackground">
 
 
   <androidx.cardview.widget.CardView
@@ -34,8 +35,9 @@
       android:layout_height="wrap_content"
       android:layout_below="@+id/searchBox_home"
       android:layout_centerHorizontal="true"
-      android:layout_margin="10dp"
-      android:entries="@array/tags" />
+      android:layout_margin="14dp"
+      android:entries="@array/tags"
+      style="@style/TextColor"/>
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyler_random"
@@ -45,7 +47,8 @@
       android:layout_marginStart="8dp"
       android:layout_marginTop="45dp"
       android:layout_marginEnd="8dp"
-      android:layout_marginBottom="8dp" />
+      android:layout_marginBottom="8dp"
+      android:layout_above="@id/bottom_navigation"/>
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
       android:id="@+id/bottom_navigation"

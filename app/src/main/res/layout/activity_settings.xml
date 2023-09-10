@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".Settings"
+    style="@style/ScreenBackground">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/setting_toolbar"
@@ -84,6 +85,7 @@
             android:elevation="4dp"
             android:padding="16dp">
             <TextView
+                android:id="@+id/change_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Language Settings"
@@ -92,6 +94,16 @@
                 android:fontFamily="@font/open_sans"
                 android:background="@drawable/custom_settings_button"/>
         </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_gravity="center"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="visible" />
 
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
