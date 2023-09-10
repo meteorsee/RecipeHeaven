@@ -48,7 +48,6 @@ public class Halal extends AppCompatActivity {
         RB_HALAL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("YES selected");
                 Log.d(TAG, "onClick: YES selected");
                 if(!checkProgress){
                     updateProgressBar();
@@ -59,7 +58,6 @@ public class Halal extends AppCompatActivity {
         RB_NON_HALAL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("NO selected");
                 Log.d(TAG, "onClick: NO selected");
                 if(!checkProgress){
                     updateProgressBar();
@@ -70,7 +68,6 @@ public class Halal extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Back button clicked");
                 Log.d(TAG, "onClick: Back button clicked");
                 Intent intent = new Intent(Halal.this, CookingLevel.class);
                 startActivity(intent);
@@ -86,7 +83,6 @@ public class Halal extends AppCompatActivity {
                 String selectedHalal = getSelectedHalal();
                 updateHalalInFirebase(selectedHalal);
 
-                showToast("Next button clicked");
                 Log.d(TAG, "onClick: Next button clicked");
                 if(!checkProgress){
                     updateProgressBar();
@@ -162,7 +158,6 @@ public class Halal extends AppCompatActivity {
             // Update the halalPreferences field in the user's data
             userRef.child("halalPreferences").setValue(selectedHalal);
 
-            showToast("Halal Preferences updated in Firebase");
 
         } else {
             showToast("User not logged in");

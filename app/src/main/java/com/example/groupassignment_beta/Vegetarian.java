@@ -44,7 +44,6 @@ public class Vegetarian extends AppCompatActivity {
         RB_YES.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("YES selected");
 
                 if(!checkProgress){
                     updateProgressBar();
@@ -55,7 +54,6 @@ public class Vegetarian extends AppCompatActivity {
         RB_NO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("NO selected");
 
                 if(!checkProgress){
                     updateProgressBar();
@@ -66,7 +64,6 @@ public class Vegetarian extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Back button clicked in vege activity");
                 decrementProgressBar();
                 Intent intent = new Intent(Vegetarian.this, Halal.class);
                 startActivity(intent);
@@ -81,7 +78,6 @@ public class Vegetarian extends AppCompatActivity {
                 String selectedVegetarian = getSelectedVegetarian();
                 updateVegetarianInFirebase(selectedVegetarian);
 
-                showToast("Next button clicked in vege activity");
 
                 if(!checkProgress){
                     updateProgressBar();
@@ -160,7 +156,6 @@ public class Vegetarian extends AppCompatActivity {
             // Update the cooking level field in the user's data
             userRef.child("vegetarianPreference").setValue(selectedVegetarian);
 
-            showToast("Vegetarian Preferences updated in Firebase");
         } else {
             showToast("User not logged in");
         }

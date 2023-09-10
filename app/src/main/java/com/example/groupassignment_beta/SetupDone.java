@@ -24,7 +24,6 @@ public class SetupDone extends AppCompatActivity {
         btGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("All done activity");
                 Intent intent = new Intent(SetupDone.this, MainActivity.class);
                 startActivity(intent);
             }
